@@ -89,7 +89,7 @@ class Home extends React.Component {
                     <Text style={styles.subText}>Views 1.7M</Text>
                   </View>
                 </View>
-                <View style={{flex:0.3}}/>
+                <View style={{flex: 0.3}} />
                 <View>
                   <View>
                     <Image style={styles.swapimage} source={Images.im2}></Image>
