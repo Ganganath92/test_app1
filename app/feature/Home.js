@@ -1,54 +1,90 @@
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   Text,
   StatusBar,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 
 import {
   Header,
-  LearnMoreLinks,
   Colors,
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import {Images} from '../resource/images';
-// import NavigationBar from 'react-native-navigation-bar';
+import {NavigationBar} from 'navigationbar-react-native';
 
+const ComponentLeft = () => {
+  return (
+    <View style={{flex: 1, alignItems: 'flex-start'}}>
+      <TouchableOpacity
+        style={{justifyContent: 'center', flexDirection: 'row'}}>
+        <Image source={Images.logo1} style={styles.compoLeft} />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const ComponentCenter = () => {
+  return (
+    <View style={{flex: 1}}>
+      {/* <Image
+        source={Images.im2}
+        style={{resizeMode: 'contain', width: 200, height: 35, alignSelf: 'center' }}
+      /> */}
+    </View>
+  );
+};
+
+const ComponentRight = () => {
+  return (
+    <View style={{flex: 1, alignItems: 'flex-end'}}>
+      <TouchableOpacity>
+        {/* <Icon name="arrow-left" size={30} color="#900" /> */}
+      </TouchableOpacity>
+    </View>
+  );
+};
 class Home extends React.Component {
   render() {
     return (
       <>
-        {/* <View>
-        <NavigationBar 
-          title='Main title'
-          height={50}
-          leftButtonTitle='back'
-          rightButtonTitle='forward'
-        />
-        <Text>ABC</Text>
-      </View> */}
         <StatusBar barStyle="dark-content" />
 
         <View style={styles.container}>
-          <ScrollView horizontal>
-            <Text style={styles.Text}>Apple</Text>
-            <Text style={styles.Text}>Project I.G.I</Text>
-            <Text style={styles.Text}>Swift</Text>
-            <Text style={styles.Text}>Lenavo</Text>
-            <Text style={styles.Text}>COD</Text>
-            <Text style={styles.Text}>GTA 5</Text>
-          </ScrollView>
           <ScrollView>
+            <NavigationBar
+              componentLeft={() => <ComponentLeft />}
+              componentCenter={() => <ComponentCenter />}
+              componentRight={() => <ComponentRight />}
+              navigationBarStyle={{backgroundColor: '#525150'}}
+              statusBarStyle={{
+                barStyle: 'light-content',
+                backgroundColor: '#ff0000',
+              }}
+            />
+            <View style={styles.navicolor}>
+              <ScrollView horizontal>
+                <Text style={styles.Text}>Apple</Text>
+                <Text style={styles.Text}>Project I.G.I</Text>
+                <Text style={styles.Text}>Swift</Text>
+                <Text style={styles.Text}>Lenavo</Text>
+                <Text style={styles.Text}>COD</Text>
+                <Text style={styles.Text}>GTA 5</Text>
+              </ScrollView>
+            </View>
             <View>
               <Image style={styles.image} source={Images.im1}></Image>
               {/* <Image style={styles.profileimages} source={Images.im1}></Image> */}
 
               <Text style={styles.titleText1}>
+                <View>
+                <Image style={styles.propic} source={Images.pro1} />
+                </View>
                 Mac Pro Unboxing & Second Impressions: The Power is Back!
               </Text>
               <Text style={styles.subText}>
@@ -59,6 +95,9 @@ class Home extends React.Component {
               <Image style={styles.image} source={Images.im2}></Image>
 
               <Text style={styles.titleText1}>
+              <View>
+                <Image style={styles.propic} source={Images.pro2} />
+                </View>
                 Apple iMac 27" 5K (2017) Core i7: Unboxing & Review
               </Text>
               <Text style={styles.subText}>
@@ -69,6 +108,9 @@ class Home extends React.Component {
               <Image style={styles.image} source={Images.im3}></Image>
 
               <Text style={styles.titleText1}>
+              <View>
+                <Image style={styles.propic} source={Images.pro3} />
+                </View>
                 BICYCLE SPEEDOMETER |HOW TO INSTALL
               </Text>
               <Text style={styles.subText}>
@@ -118,15 +160,15 @@ class Home extends React.Component {
             <View>
               <Image style={styles.image} source={Images.im5}></Image>
 
-              <Text style={styles.titleText1}>dasadc</Text>
+              <Text style={styles.titleText1}><View><Image style={styles.propic} source={Images.pro4} /></View>dasadc</Text>
               <Text style={styles.subText}>
+                
                 Jay Shutter. 1.7M Views 2 Years
               </Text>
             </View>
             <View>
               <Image style={styles.image} source={Images.im6}></Image>
-
-              <Text style={styles.titleText1}>dasadc</Text>
+              <Text style={styles.titleText1}><View><Image style={styles.propic} source={Images.pro5} /></View>dasadc</Text>
               <Text style={styles.subText}>
                 Jay Shutter. 1.7M Views 2 Years
               </Text>
@@ -143,6 +185,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#525150',
+  },
+  navicolor: {
+    backgroundColor: '#61605f',
   },
   image: {
     flex: 1,
@@ -168,10 +213,8 @@ const styles = StyleSheet.create({
     width: '20%',
     height: 30,
     resizeMode: 'contain',
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    borderBottomLeftRadius: 40,
-    borderBottomRightRadius: 40,
+    overflow: 'hidden',
+    borderRadius: 20,
     backgroundColor: 'white',
   },
   titleText: {
@@ -211,6 +254,26 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#bac2bc',
   },
+  compoLeft: {
+    resizeMode: 'contain',
+    width: 200,
+    height: 35,
+    alignSelf: 'center',
+    overflow: 'hidden',
+    // borderRadius: 150/2,
+  },
+  propic: {
+    borderRadius: 400/2,
+    resizeMode: 'contain',
+    width: 60,
+    height: 35,
+    alignSelf: 'center',
+    overflow: 'hidden',
+    // marginRight: 200,
+    flexDirection:'row', 
+   
+  },
+
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
