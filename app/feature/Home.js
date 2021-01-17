@@ -29,23 +29,29 @@ const ComponentLeft = () => {
   );
 };
 
-const ComponentCenter = () => {
-  return (
-    <View style={{flex: 1}}>
-      {/* <Image
-        source={Images.im2}
-        style={{resizeMode: 'contain', width: 200, height: 35, alignSelf: 'center' }}
-      /> */}
-    </View>
-  );
-};
-
 const ComponentRight = () => {
   return (
-    <View style={{flex: 1, alignItems: 'flex-end'}}>
-      <TouchableOpacity>
-        {/* <Icon name="arrow-left" size={30} color="#900" /> */}
-      </TouchableOpacity>
+    <View style={{flex: 2, alignItems: 'flex-end', flexDirection: 'row'}}>
+      <View>
+        <TouchableOpacity>
+          <Image source={Images.icon1} style={styles.iconimage} />
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity>
+          <Image source={Images.icon3} style={styles.iconimage} />
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity>
+          <Image source={Images.icon2} style={styles.iconimage} />
+        </TouchableOpacity>
+      </View>
+      <View>
+        <TouchableOpacity>
+          <Image source={Images.pro5} style={styles.iconimage} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -59,7 +65,7 @@ class Home extends React.Component {
           <ScrollView>
             <NavigationBar
               componentLeft={() => <ComponentLeft />}
-              componentCenter={() => <ComponentCenter />}
+              // ComponentRight1={() => <ComponentRight1 />}
               componentRight={() => <ComponentRight />}
               navigationBarStyle={{backgroundColor: '#525150'}}
               statusBarStyle={{
@@ -80,42 +86,53 @@ class Home extends React.Component {
             <View>
               <Image style={styles.image} source={Images.im1}></Image>
               {/* <Image style={styles.profileimages} source={Images.im1}></Image> */}
-
-              <Text style={styles.titleText1}>
+              <View style={{flex: 1, flexDirection: 'row'}}>
                 <View>
-                <Image style={styles.propic} source={Images.pro1} />
+                  <Image style={styles.propic} source={Images.pro1} />
                 </View>
-                Mac Pro Unboxing & Second Impressions: The Power is Back!
-              </Text>
-              <Text style={styles.subText}>
-                Jay Shutter. 1.7M Views 2 Years
-              </Text>
+                <View>
+                  <Text style={styles.titleText1}>
+                    Mac Pro Unboxing & Second Impressions: The Power is Back!
+                  </Text>
+                  <Text style={styles.subText}>
+                    Jay Shutter. 1.7M Views 2 Years
+                  </Text>
+                </View>
+              </View>
             </View>
+
             <View>
               <Image style={styles.image} source={Images.im2}></Image>
-
-              <Text style={styles.titleText1}>
-              <View>
-                <Image style={styles.propic} source={Images.pro2} />
+              <View style={{flex: 1, flexDirection: 'row'}}>
+                <View>
+                  <Image style={styles.propic} source={Images.pro2} />
                 </View>
-                Apple iMac 27" 5K (2017) Core i7: Unboxing & Review
-              </Text>
-              <Text style={styles.subText}>
-                Jay Shutter. 1.7M Views 2 Years
-              </Text>
+                <View>
+                  <Text style={styles.titleText1}>
+                    Apple iMac 27" 5K (2017) Core i7: Unboxing & Review
+                  </Text>
+                  <Text style={styles.subText}>
+                    Jay Shutter. 1.7M Views 2 Years
+                  </Text>
+                </View>
+              </View>
             </View>
+
             <View>
               <Image style={styles.image} source={Images.im3}></Image>
-
-              <Text style={styles.titleText1}>
-              <View>
-                <Image style={styles.propic} source={Images.pro3} />
+              <View style={{flex: 1, flexDirection: 'row'}}>
+                <View>
+                  <Image style={styles.propic} source={Images.pro3} />
                 </View>
-                BICYCLE SPEEDOMETER |HOW TO INSTALL
-              </Text>
-              <Text style={styles.subText}>
-                Jay Shutter. 1.7M Views 2 Years
-              </Text>
+                <View>
+                  <Text style={styles.titleText1}>
+                    BICYCLE SPEEDOMETER |HOW TO INSTALL
+                  </Text>
+                  <Text style={styles.subText}>
+                    Jay Shutter. 1.7M Views 2 Years
+                  </Text>
+                </View>
+              </View>
             </View>
             <View>
               <Text style={styles.titleText}>Sort Video</Text>
@@ -159,19 +176,31 @@ class Home extends React.Component {
             </View>
             <View>
               <Image style={styles.image} source={Images.im5}></Image>
-
-              <Text style={styles.titleText1}><View><Image style={styles.propic} source={Images.pro4} /></View>dasadc</Text>
-              <Text style={styles.subText}>
-                
-                Jay Shutter. 1.7M Views 2 Years
-              </Text>
+              <View style={{flex: 1, flexDirection: 'row'}}>
+                <View>
+                  <Image style={styles.propic} source={Images.pro4} />
+                </View>
+                <View>
+                  <Text style={styles.titleText1}>dasadc</Text>
+                  <Text style={styles.subText}>
+                    Jay Shutter. 1.7M Views 2 Years
+                  </Text>
+                </View>
+              </View>
             </View>
             <View>
               <Image style={styles.image} source={Images.im6}></Image>
-              <Text style={styles.titleText1}><View><Image style={styles.propic} source={Images.pro5} /></View>dasadc</Text>
-              <Text style={styles.subText}>
-                Jay Shutter. 1.7M Views 2 Years
-              </Text>
+              <View style={{flex: 1, flexDirection: 'row'}}>
+                <View>
+                  <Image style={styles.propic} source={Images.pro5} />
+                </View>
+                <View>
+                  <Text style={styles.titleText1}>dasadc</Text>
+                  <Text style={styles.subText}>
+                    Jay Shutter. 1.7M Views 2 Years
+                  </Text>
+                </View>
+              </View>
             </View>
           </ScrollView>
         </View>
@@ -263,15 +292,24 @@ const styles = StyleSheet.create({
     // borderRadius: 150/2,
   },
   propic: {
-    borderRadius: 400/2,
+    borderRadius: 400 / 2,
     resizeMode: 'contain',
     width: 60,
     height: 35,
     alignSelf: 'center',
     overflow: 'hidden',
     // marginRight: 200,
-    flexDirection:'row', 
-   
+    flexDirection: 'row',
+  },
+  iconimage: {
+    borderRadius: 400 / 2,
+    resizeMode: 'contain',
+    width: 45,
+    height: 30,
+    alignSelf: 'center',
+    overflow: 'hidden',
+    // marginRight: 200,
+    flexDirection: 'row',
   },
 
   sectionTitle: {

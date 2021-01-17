@@ -12,6 +12,9 @@ const Images = {
     pro3: require('../../assets/pro3.png'),
     pro4: require('../../assets/pro4.png'),
     pro5: require('../../assets/pro5.png'),
+    icon1: require('../../assets/icon1.png'),
+    icon2: require('../../assets/icon2.png'),
+    icon3: require('../../assets/icon3.png'),
   };
   
   export {Images};
